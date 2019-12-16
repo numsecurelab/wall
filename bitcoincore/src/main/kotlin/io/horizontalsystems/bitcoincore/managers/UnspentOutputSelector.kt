@@ -57,9 +57,9 @@ class UnspentOutputSelector(private val calculator: TransactionSizeCalculator, p
         }
 
         // if all outputs are selected and total value less than needed throw error
-        if (totalValue < sentValue) {
-            throw SendValueErrors.InsufficientUnspentOutputs
-        }
+//        if (totalValue < sentValue) {
+//            throw SendValueErrors.InsufficientUnspentOutputs
+//        }
 
         val changeOutputHavingTransactionFee = calculator.transactionSize(selectedOutputTypes, listOf(outputType, changeType), pluginDataOutputSize) * feeRate
         val withChangeRecipientValue = if (senderPay) value else value - changeOutputHavingTransactionFee
